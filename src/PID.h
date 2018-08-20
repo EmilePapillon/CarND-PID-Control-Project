@@ -9,6 +9,11 @@ public:
   double p_error;
   double i_error;
   double d_error;
+  double cte_sliding_window[1000];
+  int sliding_window_size;
+  int it;
+  double twiddle_tolerance;
+  double dp[3];
 
   /*
   * Coefficients
@@ -17,6 +22,16 @@ public:
   double Ki;
   double Kd;
 
+  /*
+  * CTE memory
+  */
+  double cte; 
+  double int_cte;
+
+  /*
+  * initialization
+  */
+  bool is_initialized;
   /*
   * Constructor
   */
@@ -41,6 +56,16 @@ public:
   * Calculate the total PID error.
   */
   double TotalError();
+
+/*
+* Calculate the steering angle
+*/
+  double GetSteering();
+
+  /*
+  *Implements twiddle for automatic PID parameter tuning
+  */
+  double TuneParameters(double tolerance);
 };
 
 #endif /* PID_H */

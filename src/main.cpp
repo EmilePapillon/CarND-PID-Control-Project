@@ -51,6 +51,13 @@ int main()
           double speed = std::stod(j[1]["speed"].get<std::string>());
           double angle = std::stod(j[1]["steering_angle"].get<std::string>());
           double steer_value;
+
+          if (!pid.is_initialized){
+            pid.Init(0.25, 0.0000, 0.0226185);
+          }
+
+          pid.UpdateError(cte);
+          steer_value = pid.GetSteering();
           /*
           * TODO: Calcuate steering value here, remember the steering value is
           * [-1, 1].
