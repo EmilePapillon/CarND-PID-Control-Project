@@ -1,7 +1,8 @@
 #ifndef PID_H
 #define PID_H
 
-class PID {
+#include "twiddler.h"
+class PID{
 public:
   /*
   * Errors
@@ -14,6 +15,7 @@ public:
   int it;
   double twiddle_tolerance;
   double dp[3];
+  Twiddler twiddler;
 
   /*
   * Coefficients
@@ -62,10 +64,6 @@ public:
 */
   double GetSteering();
 
-  /*
-  *Implements twiddle for automatic PID parameter tuning
-  */
-  double TuneParameters(double tolerance);
 };
 
 #endif /* PID_H */

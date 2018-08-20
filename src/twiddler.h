@@ -1,3 +1,8 @@
+#ifndef TWIDDLER_H_
+#define TWIDDLER_H_ 
+
+#include "PID.h"
+class PID;  //just a forward declaration for later use
 class Twiddler{
 public: 
 	const double TWIDDLE_INCREASE_FACTOR  = 1.1; 
@@ -21,14 +26,18 @@ public:
 		decrease = -1
 	} current_direction;
 
-	Twiddle();
+	bool tried_subtraction;
 
-	virtual ~Twiddle();
+	Twiddler();
+
+	virtual ~Twiddler();
 
 	//methods
-	void Init();
+	void Init(double tol);
 
 	bool refreshError(double err);
 
-	void twiddle(PID*, cte);
-}
+	void twiddle(PID* pid, double cte);
+};
+
+#endif /* TWIDDLER_H_ */
