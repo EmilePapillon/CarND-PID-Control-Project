@@ -5,14 +5,15 @@
 class PID;  //just a forward declaration for later use
 class Twiddler{
 public: 
-	const double TWIDDLE_INCREASE_FACTOR  = 1.1; 
-	const double TWIDDLE_DECREASE_FACTOR = 0.9; 
+	//extern const double TWIDDLE_INCREASE_FACTOR; 
+	//extern const double TWIDDLE_DECREASE_FACTOR; 
 
 	double best_err;
 	double dp[3];
 	int settle_iterations; //number of iterations allowed to settle (before calculating error)
 	int twiddle_iterations; //number of total iteration for calculating error
 	double tolerance;//parameter: tolerance of the twiddler
+	double err;
 
 	enum twiddle_phase 
 	{	p_tuning, 
@@ -27,6 +28,8 @@ public:
 	} current_direction;
 
 	bool tried_subtraction;
+	bool updating_phase;
+	int iteration;
 
 	Twiddler();
 

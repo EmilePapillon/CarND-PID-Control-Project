@@ -1,7 +1,10 @@
 #ifndef PID_H
 #define PID_H
 
+#include <iostream>
 #include "twiddler.h"
+
+
 class PID{
 public:
   /*
@@ -15,14 +18,9 @@ public:
   int it;
   double twiddle_tolerance;
   double dp[3];
+  double params[3];
   Twiddler twiddler;
 
-  /*
-  * Coefficients
-  */ 
-  double Kp;
-  double Ki;
-  double Kd;
 
   /*
   * CTE memory

@@ -3,6 +3,8 @@
 #include "json.hpp"
 #include "PID.h"
 #include <math.h>
+#include "PID.h" //consider removing
+#include "twiddler.h" //consider removing
 
 // for convenience
 using json = nlohmann::json;
@@ -53,7 +55,8 @@ int main()
           double steer_value;
 
           if (!pid.is_initialized){
-            pid.Init(0.25, 0.0000, 0.0226185);
+            //pid.Init(0.25, 0.0000, 0.0226185);
+            pid.Init(0.0,0.0,0.0);
           }
 
           pid.UpdateError(cte);
