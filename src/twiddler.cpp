@@ -26,13 +26,6 @@ void Twiddler::Init(double tol){
 	err=0;
 }
 
-bool Twiddler::refreshError(double err){
-	if (err<this->best_err){
-		this->best_err=err;
-		return true;
-	}
-	return false;
-}
 
 void Twiddler::twiddle(PID* pid, double cte){
 	if(this->iteration < settle_iterations){
@@ -52,7 +45,7 @@ void Twiddler::twiddle(PID* pid, double cte){
 	for (int i=0; i<3; i++){
 		sum+=this->dp[i];
 	}
-	while (sum<this->tolerance){
+	while (sum<this->tolerance){  //having a while loop is not right... it needs to be a for ... rethink this part
 	//implement here
 		cout << "total iterations: "<< iteration << endl;
 		if (updating_phase)
