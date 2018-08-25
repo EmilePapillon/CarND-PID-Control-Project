@@ -14,6 +14,9 @@ public:
 	int twiddle_iterations; //number of total iteration for calculating error
 	double tolerance;//parameter: tolerance of the twiddler
 	double err;
+	int settle_completion;
+	int twiddle_completion;
+	bool first_pass;
 
 	enum twiddle_phase 
 	{	p_tuning, 
@@ -21,11 +24,11 @@ public:
 		d_tuning
 	} current_tuning_phase; 
 
-	enum increase_decrease_flag
-	{
-		increase = 1,
-		decrease = -1
-	} current_direction;
+	// enum increase_decrease_flag
+	// {
+	// 	increase = 1,
+	// 	decrease = -1
+	// } current_direction;
 
 	bool tried_subtraction;
 	bool updating_phase;
