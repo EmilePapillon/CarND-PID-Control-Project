@@ -17,7 +17,7 @@ public:
   int sliding_window_size;
   int it;
   double twiddle_tolerance;
-  double dp[3];
+  //double dp[3];
   double params[3];
   Twiddler twiddler;
 

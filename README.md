@@ -17,6 +17,13 @@ The PID requires tuning the Kp, Ki and Kd terms. This tuning was achieved using 
 
 It can be seen in the following video that with current initial parameters : Kp = 0.1, Ki = 0, Kd = 0.5 the PID already does good. The vehicle oscillates slightly (overshoots), suggesting that the Kd parameter could be higher. The error is reduced by tweaking Kp higher but is not reduced by tweaking neither Ki nor Kd, suggesting that smaller tweaking steps may be required. If let run long enough, the car will run out of the road because the integral error will grow faster than the tweaking steps on Ki are decreasing. To overcome that, it might be necessary to reset the integral error at every twiddle iteration. 
 
+**The following video shows :** 
+
+- PID steering the vehicle.
+
+- Twiddle algorithm "twiddling" PID parameters with verbose output on terminal.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TSpdTJ-X8rQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 
 ---
@@ -63,4 +70,3 @@ using the following settings:
 
 * indent using spaces
 * set tab width to 2 spaces (keeps the matrices in source code aligned)
-

@@ -91,10 +91,8 @@ void Twiddler::twiddle(PID* pid, double cte){
 				}
 			cout<<" by "<<dp[current_tuning_phase]<<endl;
 			pid->params[current_tuning_phase] +=  dp[current_tuning_phase];
-			for (int i=0; i<3; i++){
-				cout<<pid->params[i]<<", ";
-			}
-			cout<<endl;
+			cout<<"Current parameters:\n";
+			cout<<"Kp="<<pid->params[0]<<", "<<"Ki="<<pid->params[1]<<", "<<"Kd="<<pid->params[2]<<endl;
 
 			this->iteration=0; //reset iterations, allowing for recalculation of error
 			this->err=0;
@@ -145,9 +143,9 @@ void Twiddler::twiddle(PID* pid, double cte){
 				}
 
 				pid->params[current_tuning_phase] -=  2*dp[current_tuning_phase];  //try subtracting dp
-				for (int i=0; i<3; i++){
-					cout<<pid->params[i]<<", ";
-				}
+				cout<<"Current parameters:\n";
+				cout<<"Kp="<<pid->params[0]<<", "<<"Ki="<<pid->params[1]<<", "<<"Kd="<<pid->params[2]<<endl;
+				
 				cout<<endl;
 				this->iteration=0; //reset iterations so the error will be evaluated
 				this->err=0;
